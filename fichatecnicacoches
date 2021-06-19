@@ -1,7 +1,7 @@
 //SUPERCLASE COCHE
 package tallermecanica;
 
-public class coche {
+public abstract class coche {
 
 public static boolean itv;
 public static boolean pasada=true;
@@ -13,9 +13,9 @@ public static boolean pasada=true;
 		this.itv=itv;
 		
 	}
-	public void itvPasada() {
-	}
+	public abstract void itvPasada();
 }
+	
 
 //SUBCLASE COCHEUTITARIO QUE HEREDA DE COCHE
 
