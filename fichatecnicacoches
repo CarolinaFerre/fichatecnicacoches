@@ -1,0 +1,294 @@
+//SUPERCLASE COCHE
+package tallermecanica;
+
+public class coche {
+
+public static boolean itv;
+public static boolean pasada=true;
+
+	//constructor de coche
+	public coche(boolean itv) {
+		
+		
+		this.itv=itv;
+		
+	}
+	public void itvPasada() {
+	}
+}
+
+//SUBCLASE COCHEUTITARIO QUE HEREDA DE COCHE
+
+package tallermecanica;
+
+import java.util.Random;
+
+public class cocheutilitario extends coche{
+	
+	//variables estáticas
+    private static String combustible;
+    private static int añomatriculacion;
+    private static int añofabricacion;
+    protected static double kmscitroen;
+    private static String modelo;
+    private static String matricula;
+    protected static int cv;
+    
+   
+   // constructor de cocheutilitario
+  public cocheutilitario(String modelo,int añofabricacion,int añomatriculacion,String combustible,double kmscitroen,int cv){    
+       //variables de la superclase
+        super(itv); 
+        //variables de la clase cocheutilitario
+        this.modelo=modelo;
+        this.añofabricacion=añofabricacion;
+        this.añomatriculacion=añomatriculacion;
+        this.combustible=combustible;
+        this.kmscitroen=kmscitroen;
+        this.cv=cv;
+        setMatricula();
+        
+    }
+  public void setMatricula() {
+	  
+	  
+	  	   int numeromatricula1 = (int) (Math.random()*9+1);
+	  	   String matricula1=String.valueOf(numeromatricula1);
+		   int numeromatricula2= (int) (Math.random()*9+1);
+		   String matricula2=String.valueOf(numeromatricula2);
+		   int numeromatricula3= (int) (Math.random()*9+1);
+		   String matricula3=String.valueOf(numeromatricula3);
+		   int numeromatricula4= (int) (Math.random()*9+1);
+		   String matricula4=String.valueOf(numeromatricula4);
+		   String totalnumerosmatricula=matricula1+matricula2+matricula3+matricula4;
+	
+		   int letra1 = (int) (Math.random()*23+1);
+		   int letra2 = (int) (Math.random()*23+1);
+		   int letra3 = (int) (Math.random()*23+1);
+		   char letras[]= {'A','B','C','D','E','F','G','H','I','J','K','L','M','Ñ','O','P','Q','R','S','T','U','W','Y','Z'};
+		   char primeraletra=letras[letra1];
+		   String letraprimer=String.valueOf(primeraletra);
+		   char primeraletra2=letras[letra2];
+		   String letrasegun=String.valueOf(primeraletra2);
+		   char primeraletra3=letras[letra3];
+		   String letratercer=String.valueOf(primeraletra3);
+		   String sumaletras=letraprimer+letrasegun+letratercer;
+		   String totalmatricula=sumaletras+totalnumerosmatricula;
+		   System.out.println("El número de matrícula de su citroen es= "+totalmatricula);
+	 
+	 }
+  public void getModelo() {
+		 
+	  System.out.println("El modelo de su coche es= "+this.modelo);
+  }
+  public void setCv() {
+		 
+	  System.out.println("Los cv de su citroen son= "+this.cv);
+	  
+  }
+
+  public void getAñoFabricacion() {
+		 
+	  System.out.println("El año de fabricación de su citroen es= "+this.añofabricacion);
+  }
+  public void getAñomatriculacion() {
+	 
+	  System.out.println("El año de matriculación de su citroen es= "+this.añomatriculacion);
+  }
+	  
+  
+  public void itvPasada() {
+	//creamos un booleano aleatorio para la variable itv
+	  Random itv1 = new Random();
+	  itv=itv1.nextBoolean();
+	if (itv==pasada) {
+		System.out.println("El coche puede circular con la itV favorable");
+	}else {
+		System.out.println("El coche no es favorable, con lo cual no puede circular");
+	}
+  }
+  public void setRevisionAceit(double kms) {
+	  if ((kms>=15000)||(kms>=30000)) {
+		  System.out.println("Usted debe hacer una revisión del aceite a su citroen");
+	  }else {
+		  System.out.println("No es necesario que haga una revisión del aceite a su citroen");
+	  }
+  }
+  public void setetiquetaMedioambiental(String combustible) {
+	  
+	
+	if (combustible=="gasolina") {
+		  System.out.println("Usted usa la etiqueta medioambiental A");
+		  
+	  }else if(combustible=="diesel") {
+		  System.out.println("Usted usa la etiqueta B");
+	
+	  }else if (combustible=="electrico") {
+		  System.out.println("Usted usa la etiqueta E");
+	  }
+  }
+}
+
+//SUBCLASE DEPORTIVO QUE HEREDA DE COCHE
+
+package tallermecanica;
+
+import java.util.Random;
+
+public class deportivo extends coche{
+	
+	//variables estáticas
+	private static String combustible;
+    private static int añomatriculacion;
+    private static int añofabricacion;
+    private static String modelo;
+    protected static double kms;
+    protected static String matricula;
+    protected static int cv;
+   
+   // constructor de deportivo
+    public deportivo(String modelo, int añofabricacion, int añomatriculacion, String combustible, String matricula,double kmsvolkswaguen,  int cv) {    
+        //variables de la superclase
+	  	super(itv); 
+	  	//variables de la clase deportivo
+        this.modelo=modelo;
+        this.añofabricacion=añofabricacion;
+        this.añomatriculacion=añomatriculacion;
+        this.combustible=combustible;
+        this.matricula=matricula;
+        this.kms=kms;
+        this.cv=cv;
+        
+    }
+
+public void getModelo() {
+		 
+	  System.out.println("El modelo de su coche es= "+this.modelo);
+  }
+  public void setCv() {
+		 
+	  System.out.println("Los cv de su volkswaguen son= "+this.cv);
+	  
+  }
+ 
+  public void getAñoFabricacion() {
+		 
+	  System.out.println("El año de fabricación de su volkswaguen es= "+this.añofabricacion);
+  }
+  public void getAñomatriculacion() {
+		 
+	  System.out.println("El año de matriculación de su volkswaguen es= "+this.añomatriculacion);
+  }
+  public void itvPasada() {
+		//creamos un booleano aleatorio para la variable itv
+		  Random itv1 = new Random();
+		  itv=itv1.nextBoolean();
+		if (itv==pasada) {
+			System.out.println("El coche puede circular con la itV favorable");
+		}else {
+			System.out.println("El coche no es favorable, con lo cual no puede circular");
+		}
+  }
+  public void setRevisionAceite(double kms) {
+	  if ((kms>=15000)||(kms>=30000)) {
+		  System.out.println("Usted debe hacer una revisión del aceite a su volkswaguen");
+	  }else {
+		  System.out.println("No es necesario que haga una revisión del aceite a su volkswaguen");
+	  }
+}
+  public void setetiquetaMedioambiental(String combustible) {
+	  
+	
+	if (combustible=="gasolina") {
+		  System.out.println("Usted usa la etiqueta medioambiental A");
+		  
+	  }else if(combustible=="diesel") {
+		  System.out.println("Usted usa la etiqueta B");
+	
+	  }else if(combustible=="electrico") {
+		  System.out.println("Usted usa la etiqueta E");
+	  }
+  }
+}
+
+//CLASE MAIN DE CREACIÓN DE OBJETOS,DECLARACIÓN DE ATRIBUTOS Y LLAMADA DE FUNCIONES
+
+package tallermecanica;
+import java.util.Scanner;
+
+public class reparacionesexpress {
+static Scanner sc=new Scanner(System.in);
+
+	public static void main(String[] args) {
+	
+		//presentación de programa
+	System.out.println("FICHA TÉCNICA DE LOS VEHÍCULOS CITROEN Y VOLKSWAGUEN");
+	System.out.println("____________________________________________________");
+	System.out.println();
+		//declaración de variables
+		int cvcitroen=72;
+		int cvgolf=300;
+		double kmscitroen = 0;
+		double kmsvolkswaguen = 0;
+		String combustiblecitroen="gasolina";
+		String combustiblevolkswaquen="diesel";
+		
+		// Creación de objetos
+		cocheutilitario citroen=new cocheutilitario("CITROEN C2 1,4 icool",2008,2008,"gasolina",kmscitroen,cvcitroen);
+		
+		deportivo volkswaguen=new deportivo("GOLF GTI V",2005,2005,"diesel","JPG0075",kmsvolkswaguen,cvgolf);
+		
+		//llamada a las funciones
+	System.out.println("El número de matrícula de su volkswaguen es= "+volkswaguen.matricula);
+	System.out.println();
+	System.out.println();
+	System.out.println("**********MODELO DEL COCHE***********");
+	citroen.getModelo();
+	System.out.println();
+	volkswaguen.getModelo();
+	System.out.println();
+	System.out.println();
+	System.out.println("**********CV***********");
+	citroen.setCv();
+	System.out.println();
+	volkswaguen.setCv();
+	System.out.println();
+	System.out.println();
+	System.out.println("**********AÑO DE FABRICACIÓN DEL COCHE***********");
+	citroen.getAñoFabricacion();
+	System.out.println();
+	volkswaguen.getAñoFabricacion();
+	System.out.println();
+	System.out.println();
+	System.out.println("**********AÑO DE MATRICULACIÓN***********");
+	citroen.getAñomatriculacion();
+	System.out.println();
+	volkswaguen.getAñomatriculacion();
+	System.out.println();
+	System.out.println();
+	System.out.println("**********ITV***********");
+	System.out.println("ITV de CITROEN C2 :");
+		citroen.itvPasada();
+	System.out.println();
+	System.out.println("ITV de VOLKSWAGUEN GOLF GTI :");
+		citroen.itvPasada();
+	System.out.println();
+	System.out.println();
+	System.out.println("**********COMPROBACIÓN DE REVISIÓN DE ACEITE***********");
+	System.out.println("Introduzca los kilómetros de su citroen...");
+		kmscitroen=sc.nextInt();
+		citroen.setRevisionAceit(kmscitroen);
+	System.out.println();
+	System.out.println("Introduzca los kilómetros de su volkswaquen...");
+		kmsvolkswaguen=sc.nextInt();
+		citroen.setRevisionAceit(kmsvolkswaguen);
+	System.out.println("*********PEGATINAS DE EMISIONES DGT***********");
+	System.out.println();
+	
+	citroen.setetiquetaMedioambiental(combustiblecitroen);
+	System.out.println();
+	
+	volkswaguen.setetiquetaMedioambiental(combustiblevolkswaquen);
+	}
+	
+}
